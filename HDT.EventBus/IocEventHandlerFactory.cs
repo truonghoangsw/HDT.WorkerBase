@@ -20,6 +20,7 @@ namespace HDT.EventBus
         public IEventHandlerDisposeWrapper GetHandler()
         {
             var scope = ScopeFactory.CreateScope();
+          
             return new EventHandlerDisposeWrapper(
              (IEventHandler)scope.ServiceProvider.GetRequiredService(HandlerType),
              () => scope.Dispose()

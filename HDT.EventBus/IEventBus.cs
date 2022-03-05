@@ -5,7 +5,7 @@ namespace HDT.EventBus
 {
     public interface IEventBus
     {
-        Task PublishAsync<TEvent>(TEvent eventData, bool onUnitOfWorkComplete = true) where TEvent : class;
+        Task PublishAsync<TEvent>(TEvent eventData, bool onUnitOfWorkComplete = false) where TEvent : class;
         Task PublishAsync(Type eventType, object eventData, bool onUnitOfWorkComplete = true);
         IDisposable Subscribe<TEvent>(Func<TEvent, Task> action) where TEvent : class;
         IDisposable Subscribe<TEvent, THandler>() where TEvent : class where THandler : IEventHandler, new();

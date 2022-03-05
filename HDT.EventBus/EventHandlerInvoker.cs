@@ -32,7 +32,7 @@ namespace HDT.EventBus
             });
             if (cacheItem.Local != null)
             {
-                await cacheItem.Local.ExecutorAsync(eventHandler, eventType);
+                await cacheItem.Local.ExecutorAsync(eventHandler, eventData);
             }
             if (cacheItem.Distributed != null)
             {
